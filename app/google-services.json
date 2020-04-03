@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "390132990499",
+    "firebase_url": "https://barber-booking-74afc.firebaseio.com",
+    "project_id": "barber-booking-74afc",
+    "storage_bucket": "barber-booking-74afc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390132990499:android:0256cec307f01daa0b6796",
+        "android_client_info": {
+          "package_name": "com.example.barberbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390132990499-9qkl2pgo0qbnpcsl8e4uba5on3dr1762.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.barberbooking",
+            "certificate_hash": "9d5007df84c6123721162fd33aca98bfea7b9a8d"
+          }
+        },
+        {
+          "client_id": "390132990499-hcggmb506mejf71pqgno67lqemc4fd0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRKV8wGXa0ns_DaSbwFszPdp1NdFAs3MQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390132990499-hcggmb506mejf71pqgno67lqemc4fd0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
