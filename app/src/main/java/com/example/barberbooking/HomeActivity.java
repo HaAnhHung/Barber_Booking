@@ -73,11 +73,12 @@ public class HomeActivity extends AppCompatActivity {
                             {
                                 showUpdateDialog(user.getPhoneNumber());
                             }
-//                            else
-//                            {
-//                                Common.currentUser = userSnapShot.toObject(User.class);
-//                                bottomNavigationView.setSelectedItemId(R.id.action_home);
-//                            }
+                            else
+                            {
+                                //if user already available in our system
+                                Common.currentUser = userSnapShot.toObject(User.class);
+                                bottomNavigationView.setSelectedItemId(R.id.action_home);
+                            }
 //                            if (dialog.isShowing())
 //                                dialog.dismiss();
                         }
@@ -134,8 +135,8 @@ public class HomeActivity extends AppCompatActivity {
                                 bottomSheetDialog.dismiss();
 //                                if (dialog.isShowing())
 //                                    dialog.dismiss();
-//                                Common.currentUser = user;
-//                                bottomNavigationView.setSelectedItemId(R.id.action_home);
+                                Common.currentUser = user;
+                                bottomNavigationView.setSelectedItemId(R.id.action_home);
                                 Toast.makeText(HomeActivity.this, "Thank You", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {

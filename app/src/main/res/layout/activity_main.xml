@@ -14,12 +14,22 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:text="Login"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="639dp" />
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_above="@id/txt_skip"
+        android:background="@color/colorButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txt_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="30sp"
+        android:text="Just Skip"
+        />
 
 </RelativeLayout>
