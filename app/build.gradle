@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.0'
     implementation 'org.jetbrains:annotations:15.0'
 
-    implementation 'com.karumi:dexter:4.2.0'
+    implementation 'com.karumi:dexter:5.0.0'
     implementation 'com.ss.bannerslider:bannerslider:2.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.shuhart.stepview:stepview:1.4.0'

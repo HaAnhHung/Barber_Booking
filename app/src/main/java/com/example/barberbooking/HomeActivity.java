@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         if(getIntent() != null){
             boolean isLogin = getIntent().getBooleanExtra(Common.IS_LOGIN, false);
             if(isLogin){
-                //dialog.show();
+//                dialog.show();
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 DocumentReference currentUser = userRef.document(user.getPhoneNumber());
@@ -79,8 +79,8 @@ public class HomeActivity extends AppCompatActivity {
                                 Common.currentUser = userSnapShot.toObject(User.class);
                                 bottomNavigationView.setSelectedItemId(R.id.action_home);
                             }
-//                            if (dialog.isShowing())
-//                                dialog.dismiss();
+                            //if (dialog.isShowing())
+                                //dialog.dismiss();
                         }
                     }
                 });

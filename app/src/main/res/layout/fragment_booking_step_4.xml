@@ -6,9 +6,9 @@
     android:background="@color/colorBackground">
 
     <ImageView
-        android:src="@drawable/barber_logo_1"
+        android:src="@drawable/barber_logo"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"/>
+        android:layout_height="150dp"/>
 
     <LinearLayout
         android:orientation="vertical"

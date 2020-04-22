@@ -1,6 +1,7 @@
 package com.example.barberbooking.Common;
 
 import com.example.barberbooking.Model.Barber;
+import com.example.barberbooking.Model.BookingInformation;
 import com.example.barberbooking.Model.Salon;
 import com.example.barberbooking.Model.User;
 
@@ -21,13 +22,15 @@ public class Common {
     public static final String KEY_CONFIRM_BOOKING = "CONFIRM_BOOKING";
     public static String IS_LOGIN = "IsLogin";
     public static User currentUser;
+    public static BookingInformation currentBooking;
+
 
     public static Salon currentSalon;
     public static int step = 0;
     public static String city = "";
     public static Barber currentBarber;
     public static int currentTimeSlot = -1;
-    public static Calendar currentDate = Calendar.getInstance();
+    public static Calendar bookingDate = Calendar.getInstance();
     public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_yyyy");
 
     public static String convertTimeSlotToString(int slot) {
