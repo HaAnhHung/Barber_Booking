@@ -4,7 +4,7 @@ package com.example.barberbooking.Model;
 import com.google.firebase.Timestamp;
 
 public class BookingInformation {
-    private String customerName, customerPhone, time, baberId, barberName, salonId, salonName, salonAdress;
+    private String cityBook, customerName, customerPhone, time, baberId, barberName, salonId, salonName, salonAdress;
     private Long slot;
     private Timestamp timestamp;
     private boolean done;
@@ -112,4 +112,11 @@ public class BookingInformation {
         this.done = done;
     }
 
+    public String getCityBook() {
+        return cityBook;
+    }
+
+    public void setCityBook(String cityBook) {
+        this.cityBook = cityBook;
+    }
 }

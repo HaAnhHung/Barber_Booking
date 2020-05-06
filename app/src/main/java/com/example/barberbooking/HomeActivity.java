@@ -1,5 +1,6 @@
 package com.example.barberbooking;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -7,7 +8,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -31,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -50,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        dialog = new SpotsDialog.Builder().setContext(this).setCancelable(false).build();
+
         ButterKnife.bind(HomeActivity.this);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -60,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         if(getIntent() != null){
             boolean isLogin = getIntent().getBooleanExtra(Common.IS_LOGIN, false);
             if(isLogin){
-//                dialog.show();
+                dialog.show();
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 DocumentReference currentUser = userRef.document(user.getPhoneNumber());
@@ -79,8 +82,8 @@ public class HomeActivity extends AppCompatActivity {
                                 Common.currentUser = userSnapShot.toObject(User.class);
                                 bottomNavigationView.setSelectedItemId(R.id.action_home);
                             }
-                            //if (dialog.isShowing())
-                                //dialog.dismiss();
+                            if (dialog.isShowing())
+                                dialog.dismiss();
                         }
                     }
                 });
