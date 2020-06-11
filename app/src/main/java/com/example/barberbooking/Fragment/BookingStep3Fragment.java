@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -88,7 +89,7 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
                 DocumentSnapshot documentSnapshot = task.getResult();
                 if(documentSnapshot.exists()){ //if barber availble
                     //get inf of booking
-                    //if not created, retuern empty
+                    //if not created, return empty
                     CollectionReference date = FirebaseFirestore.getInstance()
                             .collection("AllSalon")
                             .document(Common.city)
@@ -197,6 +198,7 @@ public class BookingStep3Fragment extends Fragment implements ITimeSlotLoadListe
     @Override
     public void onTimeSlotLoadSuccess(List<TimeSlot> timeSlotList) {
         MyTimeSlotAdapter adapter = new MyTimeSlotAdapter(getContext(), timeSlotList);
+
         recycler_time_slot.setAdapter(adapter);
 
         dialog.dismiss();

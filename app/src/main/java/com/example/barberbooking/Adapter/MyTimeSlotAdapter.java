@@ -2,6 +2,7 @@ package com.example.barberbooking.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.barberbooking.Model.TimeSlot;
 import com.example.barberbooking.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MyTimeSlotAdapter extends RecyclerView.Adapter<MyTimeSlotAdapter.MyViewHolder> {
@@ -51,27 +53,50 @@ public class MyTimeSlotAdapter extends RecyclerView.Adapter<MyTimeSlotAdapter.My
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txt_time_slot.setText(new StringBuilder(Common.convertTimeSlotToString(position)));
-        if(timeSlotList.size() == 0){
-            holder.card_time_slot.setCardBackgroundColor(context.getResources().getColor(android.R.color.white));
 
-            holder.txt_time_slot_description.setText("Availble");
-            holder.txt_time_slot_description.setTextColor(context.getResources().getColor(android.R.color.black));
-            holder.txt_time_slot.setTextColor(context.getResources().getColor(android.R.color.black));
-        }else { //if have time slot is full(booked)
-            for (TimeSlot slotValue:timeSlotList){
-                //loop all time from server and ser different color
-                int slot = Integer.parseInt(slotValue.getSlot().toString());
-                if(slot == position){
-                    holder.card_time_slot.setTag(Common.DISABLE_TAG);
+        String[] convertTime = holder.txt_time_slot.getText().toString().split("-");
 
-                    holder.card_time_slot.setCardBackgroundColor(context.getResources().getColor(android.R.color.darker_gray));
+        String[] startTimeConvert = convertTime[0].split(":");
+        int hourInt = Integer.parseInt(startTimeConvert[0].trim());
+        int minInt = Integer.parseInt(startTimeConvert[1].trim());
 
-                    holder.txt_time_slot_description.setText("Full");
-                    holder.txt_time_slot_description.setTextColor(context.getResources().getColor(android.R.color.white));
-                    holder.txt_time_slot.setTextColor(context.getResources().getColor(android.R.color.white));
+        if (Calendar.getInstance().getTime().getDate() == Common.bookingDate.getTime().getDate() &&
+                (hourInt < Calendar.getInstance().getTime().getHours() ||
+                        (hourInt == Calendar.getInstance().getTime().getHours() && minInt < Calendar.getInstance().getTime().getMinutes()))) {
+            holder.card_time_slot.setEnabled(false); //b xem t lấy giờ phút hiện tại có đúng k
+            holder.card_time_slot.setTag(Common.DISABLE_TAG);
+
+            holder.card_time_slot.setCardBackgroundColor(context.getResources().getColor(android.R.color.darker_gray));
+
+            holder.txt_time_slot_description.setText("Not available");
+            holder.txt_time_slot_description.setTextColor(context.getResources().getColor(android.R.color.white));
+            holder.txt_time_slot.setTextColor(context.getResources().getColor(android.R.color.white));
+        } //cái phần này t làm để cho nó k chọn đc nếu qua giờ nhưng mà chạy nó k ra như ý, nó cứ bị lỗi j ý
+//        else { // t thử đặt cái if này vào nhiều chỗ r mà nó vẫn k đc
+            if (timeSlotList.size() == 0) {
+                holder.card_time_slot.setCardBackgroundColor(context.getResources().getColor(android.R.color.white));
+
+                holder.txt_time_slot_description.setText("Available");
+                holder.txt_time_slot_description.setTextColor(context.getResources().getColor(android.R.color.black));
+                holder.txt_time_slot.setTextColor(context.getResources().getColor(android.R.color.black));
+            } else { //if have time slot is full(booked)
+
+                for (TimeSlot slotValue : timeSlotList) {
+                    //loop all time from server and ser different color
+                    int slot = Integer.parseInt(slotValue.getSlot().toString());
+                    if (slot == position) {
+                        holder.card_time_slot.setEnabled(false);
+                        holder.card_time_slot.setTag(Common.DISABLE_TAG);
+
+                        holder.card_time_slot.setCardBackgroundColor(context.getResources().getColor(android.R.color.darker_gray));
+
+                        holder.txt_time_slot_description.setText("Full");
+                        holder.txt_time_slot_description.setTextColor(context.getResources().getColor(android.R.color.white));
+                        holder.txt_time_slot.setTextColor(context.getResources().getColor(android.R.color.white));
+                    }
                 }
             }
-        }
+//        }
         //add all card to list, no add card already in cardViewList
         if(!cardViewList.contains(holder.card_time_slot))
             cardViewList.add(holder.card_time_slot);

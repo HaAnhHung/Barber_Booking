@@ -42,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_login)
     void loginUser()
     {
-        startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(provider).build(), APP_REQUEST_CODE);
+        startActivityForResult(AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(provider)
+                .build(), APP_REQUEST_CODE);
     }
 
 //    @OnClick(R.id.txt_skip)

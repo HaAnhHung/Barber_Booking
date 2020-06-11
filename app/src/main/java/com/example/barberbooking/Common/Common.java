@@ -20,7 +20,7 @@ public class Common {
     public static final String KEY_DISPLAY_TIME_SLOT = "DISPLAY_TIME_SLOT";
     public static final String KEY_STEP = "KEY_STEP";
     public static final String KEY_BARBER_SELECTED = "BARBER_SELECTED";
-    public static final int TIME_SLOT_TOTAL = 20;
+    public static final int TIME_SLOT_TOTAL = 30;
     public static final String DISABLE_TAG = "DISABLE";
     public static final String KEY_TIME_SLOT = "TIME_SLOT";
     public static final String KEY_CONFIRM_BOOKING = "CONFIRM_BOOKING";
@@ -82,6 +82,26 @@ public class Common {
                 return "18:00 - 18:30";
             case 19:
                 return "18:30 - 19:00";
+            case 20:
+                return "19:00 - 19:30";
+            case 21:
+                return "19:30 - 20:00";
+            case 22:
+                return "20:00 - 20:30";
+            case 23:
+                return "20:30 - 21:00";
+            case 24:
+                return "21:00 - 21:30";
+            case 25:
+                return "21:30 - 22:00";
+            case 26:
+                return "22:00 - 22:30";
+            case 27:
+                return "22:30 - 23:00";
+            case 28:
+                return "23:00 - 23:30";
+            case 29:
+                return "23:30 - 24:00";
             default:
                 return "Closed";
         }
@@ -91,5 +111,8 @@ public class Common {
         Date date = timestamp.toDate();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_yyyy");
         return  simpleDateFormat.format(date);
+    }
+    public static String formatItemShoppingName(String name) {
+        return name.length() > 13 ? new StringBuilder(name.substring(0,10)).append("...").toString():name;
     }
 }

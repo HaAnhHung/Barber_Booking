@@ -219,7 +219,7 @@ public class BookingStep4Fragment extends Fragment {
         endEvent.set(Calendar.HOUR_OF_DAY, endHourInt);//set event start hour
         endEvent.set(Calendar.MINUTE, endMinInt); //set event start min
 
-        //after we have startEvent and andEvent, convert it ti famat string
+        //after we have startEvent and andEvent, convert it ti format string
         SimpleDateFormat calendarDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         String startEventTime = calendarDateFormat.format(startEvent.getTime());
         String endEventTime = calendarDateFormat.format(endEvent.getTime());

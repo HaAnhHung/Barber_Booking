@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_barber" />
+        android:background="@drawable/barber_background"/>
 
     <Button
         android:id="@+id/btn_login"
@@ -29,6 +29,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:textSize="30sp"
+        android:textColor="@color/white"
         android:text="Just Skip"
         />
 

@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.ShoppingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
+        android:background="@android:color/background_dark"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Shopping Fragment" />
+        android:layout_height="1dp" />
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:paddingTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_wax"
+            android:text="Wax"
+            app:chipBackgroundColor="@android:color/holo_orange_dark"
+            android:textColor="@android:color/black"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_spray"
+            android:text="Spray"
+            app:chipBackgroundColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_hair_care"
+            android:text="Hair Care"
+            app:chipBackgroundColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_body_care"
+            android:text="Body Care"
+            app:chipBackgroundColor="@android:color/darker_gray"
+            android:textColor="@android:color/white"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</FrameLayout>
+    </com.google.android.material.chip.ChipGroup>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>
